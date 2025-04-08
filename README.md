@@ -11,7 +11,7 @@ public static returnType Solution() {}
 Change Main.java to run the desired solution.
 Run to see results.
 
-## Running Code
+## Using Test Cases
 Write test cases in the main function.
 Format:
 String[] testCases = {
@@ -40,3 +40,12 @@ Use helper functions from InputHelper.java to convert test cases into a useable 
 
 Change Main.java to run the desired solution.
 Run to see results.
+
+## Running Code
+Use code runner extension by Jun Han.
+Uncheck extension setting that says Show Execution Message to remove [Running] and [Done] line.
+
+Running with code runner generates .class files for all java files. We want those made in a bin folder to avoid clutter.
+Go to settings. Search for Code-Runner: Executor Map.
+Edit in settings.json. Change to :
+java: "mkdir -p bin && javac -d bin *.java && java -cp bin Main",
