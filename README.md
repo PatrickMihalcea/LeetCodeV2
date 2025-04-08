@@ -49,3 +49,22 @@ Running with code runner generates .class files for all java files. We want thos
 Go to settings. Search for Code-Runner: Executor Map.
 Edit in settings.json. Change to :
 java: "mkdir -p bin && javac -d bin *.java && java -cp bin Main",
+
+## Easily Create new Solutions
+./newSolution <fileName> <returnType> <arg1Type> <argName> <arg2Type> <arg2Name> ...
+
+fileName should follow convention of problemName_problem#. .java will be added.
+Types with "[]" must be in quotes.
+
+Example:
+./newSolution TopKFrequentElements_347 "int[]" "int[]" nums int k
+
+Result: TopKFrequentElements_347.java: 
+
+import java.util.*;
+
+public class TopKFrequentElements_347 {
+    public static int[] Solution(int[] nums, int k) {
+
+    }
+}

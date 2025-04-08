@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Check if at least 4 arguments are provided
+if [ "$#" -lt 4 ]; then
+  echo "Usage: ./newSolution <FileName> <ReturnType> <ArgType1> <ArgName1> [<ArgType2> <ArgName2> ...]"
+  exit 1
+fi
+
+# Take the filename and return type
+originalFileName="$1"
+returnType="$2"
+shift 2
+
+# Capitalize the first letter for class name
+firstCharUpper=$(echo "${originalFileName:0:1}" | tr '[:lower:]' '[:upper:]')
+restChars="${originalFileName:1}"
+fileName="${firstCharUpper}${restChars}"
+
+# Start building argument list for the function
+argList=""
+while [ "$#" -gt 0 ]; do
+  argType="$1"
+  argName="$2"
+  
+  if [ -z "$argName" ]; then
+    echo "Error: Argument type '$argType' does not have a corresponding name."
+    exit 1
+  fi
+
+  if [ -z "$argList" ]; then
+    argList="$argType $argName"
+  else
+    argList="$argList, $argType $argName"
+  fi
+
+  shift 2
+done
+
+# Create the Java file
+echo "import java.util.*;
+
+public class $fileName {
+    public static $returnType Solution($argList) {
+        
+    }
+}" > "$fileName.java"
+
+echo "Created $fileName.java!"

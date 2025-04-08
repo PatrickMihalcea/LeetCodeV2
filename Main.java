@@ -1,27 +1,28 @@
 
-import java.util.Arrays;
 
 public class Main {  
     public static void main(String[] args) {
-        int inputSize = 2;
+        int inputSize = 1;
         boolean checkSolutions = true;
         
         String[] TestCases = {
-            "[1,2,3,4]", "7",
+            "[act, pots, tops, cat, stop, hat]",
+            "[]"
         };
 
         String[] Solutions = {
-            "[2, 3]"
+            "[[hat], [act, cat], [stop, pots, tops]]",
+            "[[]]"
         };
         
         int testCaseNumber = 0;
         // Loop through test cases and call function here. 
         for (int i = 0; i < TestCases.length; i+=inputSize) {
-            int[] nums = InputHelper.argToIntArray(TestCases[i]);
+            String[] strs = InputHelper.argToStringArray(TestCases[i]);
             System.out.print("Test Case " + Integer.toString(testCaseNumber+1) + ": "); 
 
             // Function Call!
-            String attempt = Arrays.toString(TwoSum_1.Solution(nums, Integer.parseInt(TestCases[i+1])));
+            String attempt = GroupAnagrams_49.Solution(strs).toString();
 
             if (checkSolutions) {
                 if (attempt.equals(Solutions[testCaseNumber])) {
@@ -36,8 +37,7 @@ public class Main {
             }
             testCaseNumber++;
         }
-        
-        
+                
     }  
 
 }
