@@ -1,29 +1,30 @@
-import java.util.Arrays;
 
 public class Main {  
     public static void main(String[] args) {
-        int inputSize = 2;
-        boolean checkSolutions = false;
+        int inputSize = 1;
+        boolean checkSolutions = true;
         
         String[] TestCases = {
-            "[1,2,2,3,3,3]", "2",
-            "[7, 7]", "1"
+            "Was it a car or a cat I saw?",
+            "NOOOO",
+            "0P"
         };
 
         String[] Solutions = {
-            "[[hat], [act, cat], [stop, pots, tops]]",
-            "[[]]"
+            "true",
+            "false",
+            "false"
         };
         
         int testCaseNumber = 0;
         // Loop through test cases and call function here. 
         for (int i = 0; i < TestCases.length; i+=inputSize) {
-            // String[] strs = InputHelper.argToStringArray(TestCases[i]);
-            int[] nums = InputHelper.argToIntArray(TestCases[i]);
+            //String[] ins = InputHelper.argToStringArray(TestCases[i]);
+            //int[] ins = InputHelper.argToIntArray(TestCases[i]);
             System.out.print("Test Case " + Integer.toString(testCaseNumber+1) + ": "); 
 
             // Function Call!
-            String attempt = Arrays.toString(TopKFrequentElements_347.Solution(nums, Integer.parseInt(TestCases[i+1])));
+            String attempt = Boolean.toString(ValidPalindrome_125.Solution(TestCases[i]));
 
             if (checkSolutions) {
                 if (attempt.equals(Solutions[testCaseNumber])) {
