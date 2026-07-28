@@ -2,6 +2,7 @@ class Solution {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
+            char compare = ' ';
             switch(c) {
                 case '(':
                 case '[':
@@ -9,19 +10,25 @@ class Solution {
                     stack.push(c);
                     break;
                 case ')':
-                    char compare = stack.pop();
+                    if (!stack.isEmpty()) {
+                        compare = stack.pop();
+                    }
                     if (compare != '(') {
                         return false;
                     }
                     break;
                 case ']':
-                    compare = stack.pop();
+                    if (!stack.isEmpty()) {
+                        compare = stack.pop();
+                    }
                     if (compare != '[') {
                         return false;
                     }
                     break;
                 case '}':
-                    compare = stack.pop();
+                    if (!stack.isEmpty()) {
+                        compare = stack.pop();
+                    }
                     if (compare != '{') {
                         return false;
                     }
