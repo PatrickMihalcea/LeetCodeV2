@@ -14,10 +14,6 @@ class Solution {
             stack.push(new int[]{i, temperature});
         }
 
-        while (!stack.isEmpty()) {
-            sol[stack.pop()[0]] = 0;
-        }
-
         return sol;
     }
 }
